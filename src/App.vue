@@ -31,22 +31,37 @@
         <br><br>
 
         <v-container>
-            <CardTest/>
+            <CardTest
+                v-if="openDialog"
+            />
         </v-container>
+
+        <RegisterForm 
+            v-if="!openDialog"
+            @openTest="openTest"
+        />
     </div>
 </template>
 
 <script>
-    import CardTest from './components/RegisterForm.vue';
+    import CardTest from './components/CardTest.vue';
+    import RegisterForm from './components/RegisterForm.vue'
 
     export default {
         name: 'App',
         components: {
-            CardTest
+            CardTest,
+            RegisterForm
         },
         data: () => ({
             logo: 'TEST',
+            openDialog: false
         }),
+        methods: {
+            openTest() {
+                this.openDialog = true
+            }
+        },
     };
 </script>
 

@@ -7,7 +7,8 @@ Vue.use(Vuex);
 
 let store = new Vuex.Store({
     state: {
-        questions: []
+        questions: [],
+        isDone:false
     },
     mutations: {
         SET_QUESTIONS_TO_STATE: (state, questions) => {
@@ -32,6 +33,9 @@ let store = new Vuex.Store({
     getters: {
         QUESTIONS(state) {
             return state.questions;
+        },
+        IS_DONE(){
+
         }
     }
 });

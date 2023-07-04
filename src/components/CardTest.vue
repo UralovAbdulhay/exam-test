@@ -53,6 +53,10 @@
 
 
     export default {
+        props:['isDone'],
+        setup(props){
+            console.log(props.isDone)
+        },
         data() {
             return {
                 title: 'Your Dashboard Testing',
@@ -445,7 +449,9 @@
 
             onChange(item) {
                 item.isSelected = true;
-                console.log(item.isSelected, "qale")
+                // eslint-disable-next-line vue/no-mutating-props
+                this.isDone = this.items.filter(e=>!e.isSelected).length === 0;
+                console.log(this.isDone, 'isDone');
 
             },
             ...mapActions([

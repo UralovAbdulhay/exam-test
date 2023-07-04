@@ -8,22 +8,14 @@
                     </div>
 
                     <div>
-                        <v-btn icon color="#000" class="v-btn--done">
+                        <v-btn icon class="v-btn--done"
+                               v-if="openDialog"
+                               :disabled="this.isDone"
+                        >
                             <v-icon>mdi-done</v-icon>
                             <v-lebal>Tugatish</v-lebal>
 
                         </v-btn>
-
-<!--                        <v-btn-->
-<!--                                class="ma-2"-->
-<!--                                color="primary"-->
-<!--                        >-->
-<!--                            Accept-->
-<!--                            <v-icon-->
-<!--                                    end-->
-<!--                                    icon="mdi-checkbox-marked-circle"-->
-<!--                            ></v-icon>-->
-<!--                        </v-btn>-->
                     </div>
                 </div>
             </v-container>
@@ -32,13 +24,14 @@
 
         <v-container>
             <CardTest
-                v-if="openDialog"
+                    v-if="openDialog"
+                    :isDone=this.isDone
             />
         </v-container>
 
-        <RegisterForm 
-            v-if="!openDialog"
-            @openTest="openTest"
+        <RegisterForm
+                v-if="!openDialog"
+                @openTest="openTest"
         />
     </div>
 </template>
@@ -55,7 +48,8 @@
         },
         data: () => ({
             logo: 'TEST',
-            openDialog: false
+            openDialog: false,
+            isDone: false
         }),
         methods: {
             openTest() {
@@ -108,6 +102,10 @@
         border-radius: 8% !important;
         padding-right: 25px !important;
         background-color: #7109a2;
+    }
+
+    .v-btn--isDone {
+
     }
 
 </style>

@@ -53,10 +53,6 @@
 
 
     export default {
-        props:['isDone'],
-        setup(props){
-            console.log(props.isDone)
-        },
         data() {
             return {
                 title: 'Your Dashboard Testing',
@@ -450,8 +446,9 @@
             onChange(item) {
                 item.isSelected = true;
                 // eslint-disable-next-line vue/no-mutating-props
-                this.isDone = this.items.filter(e=>!e.isSelected).length === 0;
+                this.isDone = this.items.filter(e => !e.isSelected).length === 0;
                 console.log(this.isDone, 'isDone');
+                this.$emit('isDone', !(this.items.filter(e => !e.isSelected).length === 0));
 
             },
             ...mapActions([
@@ -462,7 +459,7 @@
         },
         mounted() {
             this.GET_QUESTIONS_FROM_API()
-                .then((res)=>{
+                .then((res) => {
                     console.log(res, ' = GET_QUESTIONS_FROM_API ');
                 })
         },

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div data-app>
         <v-app-bar elevation="4">
             <v-container>
                 <div class="navbar-box">
@@ -8,13 +8,13 @@
                     </div>
 
                     <div>
-                        <v-btn icon class="v-btn--done"
-                               v-if="openDialog"
-                               :disabled="this.isDone"
+                        <v-btn
+                                color="#2ebff0"
+                                @click.stop="dialog = true"
+                                :disabled="isDone"
+                                v-if="openDialog === 1"
                         >
-                            <v-icon>mdi-done</v-icon>
-                            <v-lebal>Tugatish</v-lebal>
-
+                            {{ btnText }}
                         </v-btn>
                     </div>
                 </div>
@@ -24,36 +24,63 @@
 
         <v-container>
             <CardTest
-                    v-if="openDialog"
-                    :isDone=this.isDone
+                    v-if="openDialog === 1"
+                    @isDone="isDoneM"
             />
         </v-container>
 
         <RegisterForm
-                v-if="!openDialog"
+                v-if="openDialog === 0"
                 @openTest="openTest"
         />
+
+        <ConfirmDialog
+                :isDialog="dialog"
+                @changeDialog="changeDialog"
+        />
+        <ProgressStatus
+                v-if="openDialog === 2"
+                @changeDialog="changeDialog"
+        />
+
     </div>
 </template>
 
 <script>
     import CardTest from './components/CardTest.vue';
     import RegisterForm from './components/RegisterForm.vue'
+    import ConfirmDialog from "./components/ConfirmDialog.vue";
+    import ProgressStatus from "./components/ProgressStatus.vue";
+
 
     export default {
         name: 'App',
         components: {
             CardTest,
-            RegisterForm
+            RegisterForm,
+            ConfirmDialog,
+            ProgressStatus
         },
         data: () => ({
-            logo: 'TEST',
-            openDialog: false,
-            isDone: false
+            logo: 'TIPI',
+            openDialog: 0,
+            isDone: false,
+            dialog: false,
+            btnText: 'Tugatish'
         }),
         methods: {
-            openTest() {
-                this.openDialog = true
+            openTest(mode) {
+                this.openDialog = mode
+            },
+            isDoneM(isDone) {
+                this.isDone = isDone;
+            },
+            changeDialog(end, mode) {
+
+                this.dialog = false
+                if (end) {
+                    this.openTest(mode);
+                }
             }
         },
     };
@@ -104,8 +131,5 @@
         background-color: #7109a2;
     }
 
-    .v-btn--isDone {
-
-    }
 
 </style>

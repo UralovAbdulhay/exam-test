@@ -58,410 +58,53 @@
                 title: 'Your Dashboard Testing',
                 tab: null,
                 items: [
-                    {
-                        key: 1,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 2,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 3,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 4,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 5,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 6,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 7,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 8,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 9,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 10,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 11,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 12,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 13,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 14,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 15,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 16,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 17,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 18,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 19,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    },
-                    {
-                        key: 20,
-                        isSelected: false,
-                        text: 'Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так.',
-                        quession: [
-                            {
-                                key: 1,
-                                test: 'что Lorem Ipsum - взятый 1'
-                            },
-                            {
-                                key: 2,
-                                test: 'что Lorem Ipsum - взятый 2'
-                            },
-                            {
-                                key: 3,
-                                test: 'что Lorem Ipsum - взятый 3'
-                            }
-                        ]
-                    }
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false},
+                    {isSelected: false}
                 ],
+
+
             }
         },
         methods: {
 
             onChange(item) {
                 item.isSelected = true;
-                // eslint-disable-next-line vue/no-mutating-props
-                this.isDone = this.items.filter(e => !e.isSelected).length === 0;
-                console.log(this.isDone, 'isDone');
-                this.$emit('isDone', !(this.items.filter(e => !e.isSelected).length === 0));
+
+                // this.isDone = this.QUESTIONS.filter(e => !e.isSelected).length === 0;
+
+                this.$emit('isDone', !(this.QUESTIONS.filter(e => !e.isSelected).length === 0));
 
             },
             ...mapActions([
-                'GET_QUESTIONS_FROM_API'
-            ])
+                'POST_QUESTIONS_FROM_API'
 
+            ]),
 
+            getQes() {
+                this.items = this.QUESTIONS;
+                // this.items.map(function (e) {e['isSelected'] = false});
+            }
         },
-        mounted() {
-            this.GET_QUESTIONS_FROM_API()
-                .then((res) => {
-                    console.log(res, ' = GET_QUESTIONS_FROM_API ');
-                })
+        beforeMount() {
+            this.getQes();
         },
         computed: {
             ...mapGetters([
@@ -509,7 +152,7 @@
     }
 
     .theme--light.v-tabs > .v-tabs-bar .v-tab--active {
-        color: #ff950c !important;
+        color: #ff1900 !important;
         font-size: 25px;
         font-weight: 600;
     }
@@ -522,7 +165,7 @@
     }
 
     .v-tabs-slider {
-        color: #24ba06;
+        color: #7109a2;
     }
 
     .content-item {

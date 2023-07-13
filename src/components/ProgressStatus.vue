@@ -1,24 +1,23 @@
 <template>
-    <div class="text-center" style="display: flex; justify-content: center; margin-top: 50px;">
-        <div style="display: flex; flex-direction: column; ">
+    <div class="text-center" style="display: flex; justify-content: center; ">
+        <div style="display: flex; flex-direction: column; align-content: center ">
             <v-progress-circular
                     :rotate="270"
                     :size="300"
                     :width="50"
                     :value="value"
-
                     color="#9e418c"
             >
                 {{ value }}
             </v-progress-circular>
 
             <v-btn
+                    style="margin-top: 10px"
                     color="#2ebff0"
                     elevation="20"
                     x-large
                     @click="changeDialog"
-                    style="margin-top: 50px"
-            >
+                >
                 qayta urinish
 
             </v-btn>
@@ -28,6 +27,8 @@
 </template>
 
 <script>
+    import {mapActions, mapGetters} from 'vuex'
+
     export default {
         name: "ProgressStatus",
         data() {
@@ -38,15 +39,31 @@
         },
         methods: {
             changeDialog() {
-                this.$emit('changeDialog', true, 0)
+                window.location.reload();
+            },
+            ...mapActions([
+                'SCORE'
+            ]),
+
+            updateScore() {
+                this.value = this.getScore;
             }
+
         },
         beforeDestroy() {
             clearInterval(this.interval)
-        },
+        }
+        ,
         mounted() {
-            this.value = 80;
-        },
+
+            this.updateScore();
+        }
+        ,
+        computed: {
+            ...mapGetters([
+                'getScore'
+            ])
+        }
     }
 </script>
 

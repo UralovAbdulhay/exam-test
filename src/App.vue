@@ -4,7 +4,10 @@
             <v-container>
                 <div class="navbar-box">
                     <div class="navbar-box-content">
-                        <h1 class="navbar-box-logo">{{ logo }}</h1>
+                        <img class="header__logo" src="https://uztipi.uz/img/logo.png"
+                             style=" width: 50px;  max-width: 100%; margin-right: 1rem"
+                        >
+                        <h4 class="navbar-box-logo">{{ logo }}</h4>
                     </div>
 
                     <div>
@@ -62,9 +65,9 @@
             ProgressStatus
         },
         data: () => ({
-            logo: 'TIPI',
+            logo: 'Toshkent iqtisodiyot va pedagogika instituti',
             openDialog: 0,
-            isDone: false,
+            isDone: true,
             dialog: false,
             btnText: 'Tugatish'
         }),
@@ -120,7 +123,7 @@
 
     .v-input--selection-controls .v-input__slot > .v-label, .v-input--selection-controls .v-radio > .v-label {
         color: #000000;
-        font-size: 20px !important;
+        font-size: 18px !important;
     }
 
     .v-toolbar__content .v-btn.v-btn--icon.v-size--default, .v-toolbar__extension .v-btn.v-btn--icon.v-size--default {
@@ -131,5 +134,10 @@
         background-color: #7109a2;
     }
 
+    .header__logo img {
+        width: 30px !important;
+        max-width: 100% !important;
+        margin-right: 1rem !important;
+    }
 
 </style>

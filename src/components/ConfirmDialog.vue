@@ -6,32 +6,39 @@
         >
             <v-card>
                 <v-card-title class="text-h5">
-                    Use Google's location service?
+                    TIPI
                 </v-card-title>
 
                 <v-card-text>
-                    Let Google help apps determine location. This means sending anonymous location data to Google, even
-                    when no apps are running.
+                    Testni tugatasizmi?
+
                 </v-card-text>
 
                 <v-card-actions>
-                    <v-spacer></v-spacer>
+                    <v-spacer style="display: flex; flex-direction: row; margin: auto">
+                        <div style="display: flex; flex-direction: row; margin: auto">
+                            <v-btn
+                                    style="background-color: #ff731a"
+                                    text
+                                    @click="changeDialog(false)"
+                            >
+                                YO'Q
+                            </v-btn>
 
-                    <v-btn
-                            color="green darken-1"
-                            text
-                            @click="changeDialog(false)"
-                    >
-                        Disagree
-                    </v-btn>
+                            <div style="margin: 30px">
 
-                    <v-btn
-                            color="green darken-1"
-                            text
-                            @click="changeDialog(true)"
-                    >
-                        Agree
-                    </v-btn>
+                            </div>
+
+                            <v-btn
+                                    style="background-color: #1dcc08"
+                                    text
+                                    @click="changeDialog(true)"
+                            >
+                                XA
+                            </v-btn>
+                        </div>
+                    </v-spacer>
+
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -40,6 +47,9 @@
 
 
 <script>
+    import axios from 'axios'
+    import {mapGetters} from 'vuex'
+
     export default {
 
         name: 'ConfirmDialog',
@@ -56,14 +66,33 @@
         },
         methods: {
             changeDialog(type) {
-                console.log(type, 'changeDialog')
+                this.sendResult();
                 this.$emit('changeDialog', type, 2)
+            },
+
+            sendResult() {
+                axios.post("http://localhost:8080/api/exam/done", {
+                    resultScore: this.getScore,
+                    examId: this.getExamId,
+                    userId: this.getUserId
+                })
+                    .catch((err) => {
+                        console.log(err);
+                    })
             }
+
         },
         watch: {
             isDialog() {
                 this.dialogLocale = this.isDialog
             }
+        },
+        computed: {
+            ...mapGetters([
+                'getScore',
+                'getExamId',
+                'getUserId'
+            ])
         }
     }
 </script>

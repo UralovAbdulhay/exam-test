@@ -1,9 +1,9 @@
 <template>
-    <div style="display: flex; justify-content: center; margin-top: 50px;">
+    <div style="display: flex; justify-content: center; margin-top: -20px;">
         <v-sheet width="500" class="mx-auto">
             <v-form fast-fail @submit.prevent>
                 <v-text-field
-                        style="font-size: 20px;"
+                        style="font-size: 18px;  margin-top: -10px"
                         v-model="firstName"
                         label="Ism"
                         :rules="firstNameRules"
@@ -12,26 +12,26 @@
                 ></v-text-field>
 
                 <v-text-field
-                        style="font-size: 20px; margin-top: 40px"
-                        v-model="lastName"
+                        style="font-size: 18px; margin-top: 15px"
+                        v-model="surname"
                         label="Familiya"
-                        :rules="lastNameRules"
+                        :rules="surnameRules"
                         @keypress="handleKeypress"
                         @input="validateForSubmit"
 
                 ></v-text-field>
 
                 <v-text-field
-                        style="font-size: 20px; margin-top: 40px"
-                        v-model="patrynomic"
+                        style="font-size: 18px; margin-top: 15px"
+                        v-model="patronymic"
                         label="Otasining ismi"
-                        :rules="patrynomicRules"
+                        :rules="patronymicRules"
                         @keypress="handleKeypress"
                         @input="validateForSubmit"
                 ></v-text-field>
 
                 <v-text-field
-                        style="font-size: 20px; margin-top: 40px"
+                        style="font-size: 18px; margin-top: 15px"
                         v-model="phone"
                         label="Telefon"
                         v-mask="maskPhone"
@@ -40,7 +40,7 @@
                 ></v-text-field>
 
                 <v-text-field
-                        style="font-size: 20px; margin-top: 40px"
+                        style="font-size: 18px; margin-top: 15px"
                         v-model="passport"
                         label="Passport "
                         :rules="passportRules"
@@ -50,8 +50,43 @@
 
                 ></v-text-field>
 
+
+                <div
+                        style="font-size: 18px; margin-top: 15px"
+                >
+                    <v-menu
+                            ref="menu"
+                            v-model="menu"
+                            :close-on-content-click="false"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="auto"
+                    >
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-text-field
+                                    style="font-size: 16px;"
+                                    v-model="date"
+                                    label="Tug'ilgan kun"
+                                    prepend-icon="mdi-calendar"
+                                    readonly
+                                    v-bind="attrs"
+                                    v-on="on"
+                            ></v-text-field>
+                        </template>
+                        <v-date-picker
+                                v-model="date"
+                                :active-picker.sync="activePicker"
+                                :max="(new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substring(0, 10)"
+                                min="1950-01-01"
+                                @change="validateForSubmit"
+                                color="#9e418c"
+                        ></v-date-picker>
+                    </v-menu>
+                </div>
+
+
                 <v-btn
-                        style="margin-top: 40px;"
+                        style="margin-top: 20px;"
                         type="submit"
                         @click="submitHandler"
                         block
@@ -69,7 +104,7 @@
 
 <script>
     import Vue from 'vue'
-
+    import {mapActions} from 'vuex'
     import VueMask from 'v-mask'
 
     Vue.use(VueMask);
@@ -83,24 +118,24 @@
             firstNameRules: [
                 value => {
 
-                    if (value?.length > 3) return true;
+                    if (value?.trim().length > 3) return true;
                     return 'First name must be at least 3 characters.'
                 },
             ],
-            lastName: '',
+            surname: '',
             isFull: true,
-            lastNameRules: [
+            surnameRules: [
                 value => {
-                    if (value?.length > 3) return true;
+                    if (value?.trim().length > 3) return true;
                     return 'Last name can not contain digits.'
                 },
             ],
 
-            patrynomic: '',
-            patrynomicRules: [
+            patronymic: '',
+            patronymicRules: [
                 value => {
-                    if (value?.length > 3) return true;
-                    return 'Last name can not contain digits.'
+                    if (value?.trim().length > 3) return true;
+                    return 'Patrynomic name can not contain digits.'
                 },
             ],
             phone: '',
@@ -118,8 +153,16 @@
                 },
             ],
 
+            activePicker: null,
+            date: null,
+            menu: false,
 
-            allUser: []
+            watch: {
+                menu(val) {
+                    val && setTimeout(() => (this.activePicker = 'YEAR'))
+                },
+            },
+
         }),
         methods: {
             handleKeypress(event) {
@@ -138,18 +181,26 @@
             submitHandler() {
                 if (
                     this.firstName.trim() === ''
-                    || this.lastName.trim() === ''
+                    || this.surname.trim() === ''
                     || this.passport.trim() === ''
                     || this.phone.trim() === ''
+                    || this.date === null
                 ) return;
 
-                const user = {
-                    firstName: this.firstName,
-                    lastName: this.lastName
-                }
-                this.allUser.push(user)
-                this.firstName = this.lastName = ''
-                this.$emit('openTest', 1)
+                this.POST_QUESTIONS_FROM_API(
+                    {
+                        name: this.getFirstName(),
+                        surname: this.getSurname(),
+                        patronymic: this.getPatronymic(),
+                        tel: this.getPhone(),
+                        birthDay: this.getBirthday(),
+                        passport: this.getPassport()
+                    }
+                )
+                    .then(() => {
+                        console.log(this.date, 'date');
+                        this.$emit('openTest', 1)
+                    })
             },
 
             matchPassport(event) {
@@ -163,13 +214,42 @@
                     (this.passport?.trim().replace(/\s/g, "").length === 9)
                     && (this.phone?.trim().replace(/[ +()-]/g, "").length === 12)
                     && (this.firstName?.length > 3)
-                    && (this.lastName?.length > 3)
+                    && (this.surname?.length > 3)
+                    && (this.date != null)
                 );
+            },
 
-                console.log(this.isFull, 'isFull')
+            getFirstName() {
+                return this.firstName.trim();
+            },
 
-            }
+            getSurname() {
+                return this.surname.trim();
+            },
 
+            getPatronymic() {
+                return this.patronymic.trim();
+            },
+
+            getPhone() {
+                return this.phone?.trim().replace(/[ +()-]/g, "");
+            },
+
+            getPassport() {
+                return this.passport.trim().replace(/\s/g, "");
+            },
+
+            getBirthday() {
+                return this.date;
+            },
+
+            ...mapActions([
+                'POST_QUESTIONS_FROM_API'
+            ]),
+
+            save(date) {
+                this.$refs.menu.save(date)
+            },
 
         },
 

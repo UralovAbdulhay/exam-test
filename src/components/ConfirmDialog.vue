@@ -49,6 +49,7 @@
 <script>
     import axios from 'axios'
     import {mapGetters} from 'vuex'
+    import store from '../vuex/store.js'
 
     export default {
 
@@ -71,7 +72,7 @@
             },
 
             sendResult() {
-                axios.post("http://localhost:8080/api/exam/done", {
+                axios.post(store.BASE_URLt + '/api/exam/done', {
                     resultScore: this.getScore,
                     examId: this.getExamId,
                     userId: this.getUserId

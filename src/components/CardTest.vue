@@ -33,7 +33,7 @@
                         <div>
                             <v-radio-group>
                                 <v-radio
-                                        v-for="i in item.quession"
+                                        v-for="i in item.question"
                                         :key="i.key"
                                         :label="i.test"
                                         :value="i.key"

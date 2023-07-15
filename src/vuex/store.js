@@ -4,10 +4,10 @@ import axios from 'axios'
 
 Vue.use(Vuex);
 
-const BASE_URL = 'http://online.uztipi.uz:3000';
 
 let store = new Vuex.Store({
     state: {
+         BASE_URL_BACK : 'http://localhost:8081',
         questions: [],
         isDone: false,
         userId: '',
@@ -30,7 +30,7 @@ let store = new Vuex.Store({
     },
     actions: {
         GET_QUESTIONS_FROM_API() {
-            return axios(BASE_URL + '/api/question', {
+            return axios(this.BASE_URL_BACK + '/question', {
                 method: "GET"
             })
                 .then((questions) => {
@@ -45,7 +45,7 @@ let store = new Vuex.Store({
 
         POST_QUESTIONS_FROM_API({commit}, user) {
             console.log(user, 'user');
-            return axios(BASE_URL + '/api/question/exam', {
+            return axios('http://localhost:8081/question/exam', {
                 method: "POST",
                 data: user
             })
@@ -60,7 +60,7 @@ let store = new Vuex.Store({
         },
 
         POST_ANSWER_TO_BACK() {
-            return axios(BASE_URL + '/api/question/exam', {
+            return axios(this.BASE_URL_BACK + '/question/exam', {
                 method: "POST",
                 body: {
                     "content": "How old are you?",
@@ -92,6 +92,10 @@ let store = new Vuex.Store({
 
         getScore(state) {
             return state.score;
+        },
+        getBaseUrl(state) {
+
+            return state.BASE_URL_BACK;
         }
 
     }

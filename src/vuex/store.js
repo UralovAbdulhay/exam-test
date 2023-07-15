@@ -4,7 +4,7 @@ import axios from 'axios'
 
 Vue.use(Vuex);
 
-const BASE_URL = 'http://online.uztipi.uz:8081';
+const BASE_URL = 'http://online.uztipi.uz:3000';
 
 let store = new Vuex.Store({
     state: {

@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 let store = new Vuex.Store({
     state: {
-         BASE_URL_BACK : 'http://localhost:8081',
+         BASE_URL_BACK : 'http://online.uztipi.uz:8081',
         questions: [],
         isDone: false,
         userId: '',
@@ -45,7 +45,7 @@ let store = new Vuex.Store({
 
         POST_QUESTIONS_FROM_API({commit}, user) {
             console.log(user, 'user');
-            return axios('http://localhost:8081/question/exam', {
+            return axios('http://online.uztipi.uz:8081/question/exam', {
                 method: "POST",
                 data: user
             })

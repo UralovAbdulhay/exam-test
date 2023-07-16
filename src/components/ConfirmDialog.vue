@@ -71,7 +71,7 @@
             },
 
             sendResult() {
-                axios.post(this.getBaseUrl + '/exam/done', {
+                axios.post('http://online.uztipi.uz:8081/exam/done', {
                     resultScore: this.getScore,
                     examId: this.getExamId,
                     userId: this.getUserId

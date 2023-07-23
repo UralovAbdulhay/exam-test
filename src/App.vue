@@ -69,7 +69,7 @@
         data: () => ({
             logo: 'Toshkent iqtisodiyot va pedagogika instituti',
             openDialog: 0,
-            isDone: false,
+            isDone: true,
             dialog: false,
             btnText: 'Tugatish'
         }),

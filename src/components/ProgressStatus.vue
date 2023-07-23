@@ -3,7 +3,7 @@
     font-family: Cera Pro;  ">
         <div style="display: flex; flex-direction: column; align-items: center;">
 
-            <div style="display: flex; flex-direction: column; justify-content: center; margin-top: -20px; margin-bottom: 20px">
+            <div style="display: flex; flex-direction: column; justify-content: center; margin-top: -30px; margin-bottom: 20px">
 
                 <div style="display: flex; flex-direction: row; justify-content: center;"
                      v-if="isPassed()"
@@ -50,6 +50,7 @@
             </div>
 
             <v-progress-circular
+                    style="margin-top: -15px"
                     :rotate="270"
                     :size="300"
                     :width="50"
@@ -60,7 +61,7 @@
             </v-progress-circular>
 
 
-            <p style="font-size: 25px; align-self: center;">Hoziroq bog'laning:</p>
+            <p style="font-size: 25px; align-self: center; font-style: italic">Hoziroq bog'laning:</p>
 
             <div style="display: inline-block; justify-content: space-between;">
 
@@ -69,7 +70,7 @@
                         <img class="contact-img"
                              src="https://img.icons8.com/?size=512&id=ufkkYBXJSuPy&format=png" alt="Phone">
                         <span style="align-self: center;">
-                            <a class="contact" href="tel:+998999387572" target="_blank">
+                            <a class="contact" href="tel:+998999387572">
                                 99 938 75 72
                             </a>
                         </span>
@@ -81,8 +82,8 @@
 
                         <img class="contact-img" src="https://core.telegram.org/img/favicon.ico" alt="Telegram">
                         <span style="align-self: center;">
-                            <a class="contact" href="tg://resolve?domain=ToshkentIqtisodiyotPedagogika" target="_blank">
-                            Telegram
+                            <a class="contact" href="tg://resolve?domain=ToshkentIqtisodiyotPedagogika">
+                                 Telegram
                         </a>
 
                         </span>

@@ -1,27 +1,29 @@
 <template>
     <div data-app>
         <v-app-bar elevation="4">
-            <v-container>
+            <v-container style="display: flex; flex-direction: row;">
                 <div class="navbar-box">
                     <div class="navbar-box-content">
                         <img class="header__logo" src="https://uztipi.uz/img/logo.png"
                              style=" width: 50px;  max-width: 100%; margin-right: 1rem"
                         >
-                        <h4 class="navbar-box-logo">{{ logo }}</h4>
                     </div>
-
-                    <div>
-                        <v-btn
-                                color="#2ebff0"
-                                @click.stop="dialog = true"
-                                :disabled="isDone"
-                                v-if="openDialog === 1"
-                        >
-                            {{ btnText }}
-                        </v-btn>
-                    </div>
+                    <p style="margin-left:10px"><b>{{ logo }}</b></p>
                 </div>
+
             </v-container>
+            <div style="display: flex; flex-direction: row; align-items: flex-end">
+                <v-btn
+                        color="#2ebff0"
+                        @click.stop="dialog = true"
+                        :disabled="isDone"
+                        v-if="openDialog === 1"
+                        style="max-width: 100px; width: 60px"
+                >
+                    {{ btnText }}
+                </v-btn>
+            </div>
+
         </v-app-bar>
         <br><br>
 
@@ -67,7 +69,7 @@
         data: () => ({
             logo: 'Toshkent iqtisodiyot va pedagogika instituti',
             openDialog: 0,
-            isDone: true,
+            isDone: false,
             dialog: false,
             btnText: 'Tugatish'
         }),
@@ -138,6 +140,14 @@
         width: 30px !important;
         max-width: 100% !important;
         margin-right: 1rem !important;
+    }
+
+
+    .v-btn:not(.v-btn--round).v-size--default {
+        height: 40px !important;
+        font-size: smaller !important;
+        width: max-content !important;
+
     }
 
 </style>

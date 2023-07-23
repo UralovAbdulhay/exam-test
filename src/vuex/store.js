@@ -7,12 +7,14 @@ Vue.use(Vuex);
 
 let store = new Vuex.Store({
     state: {
-         BASE_URL_BACK : 'http://online.uztipi.uz:8081',
+        BASE_URL_BACK: 'http://online.uztipi.uz:8081',
         questions: [],
         isDone: false,
         userId: '',
         examId: '',
         score: 0,
+        max: 0,
+        limit:0
 
     },
     mutations: {
@@ -24,6 +26,9 @@ let store = new Vuex.Store({
             state.userId = data.user_id;
             state.examId = data.exam_id;
             state.score = data.score;
+            state.max = data.maxValue || 150;
+            state.limit = data.limit || 50;
+
 
         },
 
@@ -93,6 +98,15 @@ let store = new Vuex.Store({
         getScore(state) {
             return state.score;
         },
+        getMaxValue(state) {
+            return state.max;
+        },
+
+        getLimit(state) {
+            return state.limit;
+        },
+
+
         getBaseUrl(state) {
 
             return state.BASE_URL_BACK;

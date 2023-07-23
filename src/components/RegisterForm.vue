@@ -1,6 +1,6 @@
 <template>
     <div style="display: flex; justify-content: center; margin-top: -20px;">
-        <v-sheet width="500" class="mx-auto">
+        <v-sheet width="60%" max-width="400px" class="mx-auto">
             <v-form fast-fail @submit.prevent>
                 <v-text-field
                         style="font-size: 18px;  margin-top: -10px"
@@ -46,10 +46,10 @@
                         :rules="passportRules"
                         @input="matchPassport"
                         v-mask="maskPassport"
+                        v-if="false"
 
 
                 ></v-text-field>
-
 
                 <div
                         style="font-size: 18px; margin-top: 15px"
@@ -61,6 +61,7 @@
                             transition="scale-transition"
                             offset-y
                             min-width="auto"
+                            v-if="false"
                     >
                         <template v-slot:activator="{ on, attrs }">
                             <v-text-field
@@ -84,9 +85,8 @@
                     </v-menu>
                 </div>
 
-
                 <v-btn
-                        style="margin-top: 20px;"
+                        style="margin-top: 20px; "
                         type="submit"
                         @click="submitHandler"
                         block
@@ -94,8 +94,9 @@
                         color="#2ebff0"
                         :disabled="isFull"
                 >
-                    Submit
+                    Yuborish
                 </v-btn>
+
             </v-form>
         </v-sheet>
     </div>
@@ -145,7 +146,7 @@
                     return 'Last name can not contain digits.'
                 },
             ],
-            passport: '',
+            passport: 'aa1234567',
             passportRules: [
                 value => {
                     if (value?.trim().replace(/\s/g, "").length === 9) return true;
@@ -154,7 +155,7 @@
             ],
 
             activePicker: null,
-            date: null,
+            date: '2023-07-23',
             menu: false,
 
             watch: {
@@ -249,6 +250,24 @@
 
             save(date) {
                 this.$refs.menu.save(date)
+            },
+
+            getDate() {
+                const currentTimestamp = Date.now();
+                // const pattern = 'yyyy-MM-dd'; // Customize the pattern as per your requirement
+                const options = {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false, // Set to true if you want 12-hour format
+                };
+
+                const formattedDate = new Date(currentTimestamp).toLocaleDateString(undefined, options);
+                console.log(formattedDate, "ishladimi?");
+                return formattedDate;
             },
 
         },
